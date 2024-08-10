@@ -1,54 +1,47 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "./include/data-structures/dynamic_array.h"
+#include "./include/data-structures/set.h"
 
 int main(int argc, char* argv[])
 {
-  // Create a new dynamic array
-  DynamicArray d_Arr = init_dynamic_array();
-
-  for (int i = 1; i < argc; i++)
-  {
-    append(&d_Arr, atoi(argv[i]));
-  }
+  // // Create a new dynamic array
+  // DynamicArray d_Arr = initDynamicArray();
 
   // for (int i = 1; i < argc; i++)
-  // {
-  //   prepend(&d_Arr, atoi(argv[i]));
-  // }
+  //
 
-  // insert(&d_Arr, 63, 1-2);
-  // insert(&d_Arr, 43, get_length(d_Arr) - 1);
+  // d_Arr_strrep(d_Arr);
 
-  strrep(d_Arr);
+  // Create a new set
+  Set set = initSet();
 
+  // for (int i = 1; i < argc; i++)
+  //   set_insert(&set, atoi(argv[i]));
 
-  // int no = 11;
-  // if (contains(d_Arr, no))
-  // {
-  //   printf("Found %i at index of: %i", no, search(d_Arr, 11));
-  // }
-  // else
-  // {
-  //   printf("Could not find %i in the array", no);
-  // }
+  // set.d_arr->data[0] = 3;
+  // set.d_arr->length = 1;
 
 
-  // printf("The item @ index 4 is %i \n", get_at_index(d_Arr, -3));
+  // set_insert(&set, 3);
+  // set_insert(&set, 11);
+  // set_insert(&set, 5);
+  // set_insert(&set, 9);
+  // set_insert(&set, 13);
+
+  // d_Arr_strrep(*(set.d_arr));
+
+  set_strrep(set);
+
+
+  // printf("Address of dynamic array: %p\n", set.d_arr);
+  // printf("Address of set: %p\n", &set);
+
+  // printf("Size of set is: %i\n", set.d_arr->data[0]);
+
+  // set_list(set);
+
 
   
-  // printf("Length: %i \n", get_length(d_Arr));
-  // printf("Capacity: %i \n", d_Arr.capacity);
-
-  // append(&d_Arr, 3);
-
-  // printf("The pointer stores the address: %p (%i) but it's address is: %p (%i) \n", d_Arr.data, d_Arr.data, &d_Arr.data, &d_Arr.data);
-  // printf("What the pointer stores is: %p \n", *(&d_Arr.data));
-
-
-  // append(&d_Arr, 6);
-
-  // list(d_Arr);
-
-  // printf("Length: %i \n", get_length(d_Arr));  
 }
