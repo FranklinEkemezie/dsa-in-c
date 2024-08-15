@@ -2,6 +2,17 @@
 
 This repository contains my implementations of various data structures and algorithms using the C programming language. It's part of my ongoing practice to deepen my understanding of fundamental computer science concepts.
 
+## Common Operations in Data Structures
+- **Insertion**: Adding an element to a data structure.
+- **Search**: Finding an element within a data structure.
+- **Sorting**: Arranging elements in a specific order.
+- **Deletion**: Removing an element from a data structure.
+- **Traversal**: Accessing each element in a data structure in a systematic manner.
+- **isEmpty**: Checking if the data structure contains any elements.
+- **Access**: Retrieving an element from a specific position.
+- **Indexing**: Assigning an index to each element for quick access.
+- **Initialization**: Setting up the data structure before use.
+
 
 ## 🛠️ Implemented Data Structures
 - **Linked List**: Singly and doubly linked lists with basic operations.

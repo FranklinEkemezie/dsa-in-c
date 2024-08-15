@@ -20,6 +20,7 @@ typedef struct DynamicArray
   int *data;      // memory address of the array containing the data
   int capacity;   // the current capacity of the array
   int length;     // the length of the dynamic array
+  int *tracker;   // tracks which element/item is initialised
 }
 DynamicArray;
 
@@ -82,7 +83,6 @@ int d_Arr_get_at_index(DynamicArray d_Arr, int index);
  * @return The length of the dynamic array
  */
 int d_Arr_get_length(DynamicArray d_Arr);
-
 
 
 /**

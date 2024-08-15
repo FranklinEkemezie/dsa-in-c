@@ -19,7 +19,7 @@
  */
 typedef struct Set
 {
-  DynamicArray *d_arr;     // memory address of the dynamic address
+  DynamicArray d_arr;     // the dynamic address
 }
 Set;
 
