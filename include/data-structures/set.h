@@ -78,5 +78,10 @@ void set_list(Set set);
  */
 void set_strrep(Set set);
 
+/**
+ * Remove the specified item from the set
+ */
+void set_remove(Set *set, int value);
+
 
 #endif

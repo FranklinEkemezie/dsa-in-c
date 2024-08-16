@@ -77,12 +77,13 @@ int d_Arr_get_at_index(DynamicArray d_Arr, int index);
 
 
 /**
- * Get the length of the dynamic array
- * Takes O(1) or constant time.
+ * Checks whether the index is within the range of the dynamic array
+ * @param d_Arr The dynamic array
+ * @param index The index
  * 
- * @return The length of the dynamic array
+ * @return Returns TRUE (1) if the index is within range, FALSE (0) otherwise
  */
-int d_Arr_get_length(DynamicArray d_Arr);
+int d_Arr_index_in_range(DynamicArray d_Arr, int index);
 
 
 /**
@@ -97,6 +98,16 @@ int d_Arr_get_length(DynamicArray d_Arr);
  * @param index The index to insert the item
  */
 void d_Arr_insert(DynamicArray *d_Arr, int value, int index);
+
+
+/**
+ * Get the length of the dynamic array
+ * Takes O(1) or constant time.
+ * 
+ * @return The length of the dynamic array
+ */
+int d_Arr_get_length(DynamicArray d_Arr);
+
 
 /**
  * List the element of a dynamic array
@@ -121,11 +132,12 @@ void d_Arr_prepend_values(DynamicArray *d_Arr, int values[], int length);
 
 
 /**
- * Search for a value in the dynamic array and return its index
+ * Search for a value in the dynamic array and return the
+ * index of the first occurrence
  * Takes O(n) or linear time.
  * 
  * @return The index of the search value if found.
- * @throw Fails if value is not found in the dynamic array
+ * @throw Fails if value is not found in the dynamic array.
  */
 int d_Arr_search(DynamicArray d_Arr, int value);
 
@@ -135,5 +147,39 @@ int d_Arr_search(DynamicArray d_Arr, int value);
  */
 void d_Arr_strrep(DynamicArray d_Arr);
 
+/**
+ * Remove the item from the array
+ * @param d_Arr The dynamic array
+ * @param value The value 
+ * @throw Fails if the value to remove is not in the array
+ */
+void d_Arr_remove(DynamicArray *d_Arr, int value);
+
+
+/**
+ * Remove an item at the specified index
+ * @param d_Arr The dynamic array
+ * @param index The index of the value to remove
+ * @throw Fails if the index is out of range.
+ */
+void d_Arr_remove_at_index(DynamicArray *d_Arr, int index);
+
+
+/**
+ * Replace the specified value with a new value
+ * @param d_Arr     The dynamic array
+ * @param index     The value to replace
+ * @param new_value The new value
+ */
+void d_Arr_replace(DynamicArray *d_Arr, int value, int new_value);
+
+
+/**
+ * Replace the value at a given index
+ * @param d_Arr     The dynamic array
+ * @param index     The index of the value to replace
+ * @param new_value The new value
+ */
+void d_Arr_replace_at_index(DynamicArray *d_Arr, int index, int new_value);
 
 #endif

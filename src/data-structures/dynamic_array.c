@@ -71,13 +71,13 @@ int d_Arr_contains(DynamicArray d_Arr, int value)
 
 int d_Arr_get_at_index(DynamicArray d_Arr, int index)
 {
-  if(index < (0 - d_Arr.length) || index > d_Arr.length - 1)
+  if(d_Arr_index_in_range(d_Arr, index))
   {
     fprintf(stderr, "Indexing range is exceeded. The index %i cannot be retrieved\n", index);
     exit(EXIT_FAILURE);
   }
 
-  if(index < 0) index += d_Arr.length;
+  if (index < 0) index += d_Arr.length;
 
   return d_Arr.data[index];
 }
@@ -89,10 +89,16 @@ int d_Arr_get_length(DynamicArray d_Arr)
 }
 
 
+int d_Arr_index_in_range(DynamicArray d_Arr, int index)
+{
+  return index >= (0 - d_Arr.length) || index < d_Arr.length;
+}
+
+
 void d_Arr_insert(DynamicArray *d_Arr, int value, int index)
 {
   // Check if the index is within range
-  if(index < (0 - d_Arr->length) || index > d_Arr->length)
+  if (d_Arr_index_in_range(*d_Arr, index))
   {
     fprintf(stderr, "Index out of range: Cannot insert at index at %i", index);
     exit(EXIT_FAILURE);
@@ -164,8 +170,7 @@ int d_Arr_search(DynamicArray d_Arr, int value)
   for (int i = 0; i < d_Arr.length; i++)
     if (d_Arr.data[i] == value) return i;
 
-
-  fprintf(stderr, "Value not found");
+  fprintf(stderr, "Value (%i) not found not found in array", value);
   exit(EXIT_FAILURE);
 }
 
@@ -174,4 +179,64 @@ void d_Arr_strrep(DynamicArray d_Arr)
 {
   printf("<DynamicArray>[%i] ", d_Arr_get_length(d_Arr));
   d_Arr_list(d_Arr);
+}
+
+void d_Arr_remove(DynamicArray *d_Arr, int value)
+{
+  if(!d_Arr_contains(*d_Arr, value))
+  {
+    fprintf(stderr, "Value %i to remove not found in the array", value);
+    exit(EXIT_FAILURE);
+  }
+  d_Arr_remove_at_index(d_Arr, d_Arr_search(*d_Arr, value));
+}
+
+
+void d_Arr_remove_at_index(DynamicArray *d_Arr, int index)
+{
+  if(!d_Arr_index_in_range(*d_Arr, index))
+  {
+    fprintf(stderr, "Index of value (%i) to remove is out of range", index);
+    exit(EXIT_FAILURE);  
+  }
+
+  // For -ve index
+  if (index < 0) index += d_Arr->length;
+
+  int current_val;
+
+  for (int i = index, len = d_Arr_get_length(*d_Arr); i < len;)
+  {
+    d_Arr->data[i] = d_Arr->data[++i];
+  }
+
+  // Decrease the legth
+  d_Arr->length--;
+}
+
+
+void d_Arr_replace(DynamicArray *d_Arr, int value, int new_value)
+{
+  if(!d_Arr_contains(*d_Arr, value)) {
+    fprintf(stderr, "Value %i not found in the array", value);
+    exit(EXIT_FAILURE);
+  }
+
+  d_Arr_replace_at_index(d_Arr, d_Arr_search(*d_Arr, value), new_value);
+}
+
+void d_Arr_replace_at_index(DynamicArray *d_Arr, int index, int new_value)
+{
+  // Check if the index is within range
+  if(d_Arr_index_in_range(*d_Arr, index))
+  {
+    fprintf(stderr, "Index out of range: Cannot insert at index at %i", index);
+    exit(EXIT_FAILURE);
+  }
+
+  // For -ve index
+  if (index < 0) index += d_Arr->length;
+
+  // Replace element
+  d_Arr->data[index] = new_value;
 }

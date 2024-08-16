@@ -73,3 +73,16 @@ void set_strrep(Set set)
   printf("<Set>[%i] ", set_get_size(set));
   set_list(set);
 }
+
+void set_remove(Set *set, int value)
+{
+  if(set_contains(*set, value))
+  {
+    d_Arr_remove(&(set->d_arr), value);
+  }
+  else
+  {
+    fprintf(stderr, "Value %i not found in set", value);
+    exit(EXIT_FAILURE);
+  }
+}
