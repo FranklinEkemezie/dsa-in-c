@@ -4,13 +4,12 @@
 #include "../../include/data-structures/singly_linked_list.h"
 
 
-LinkedListSingle initSinglyLinkedList()
+LinkedList_ initLinkedList_()
 {
-  LinkedListSingle ll_;
+  LinkedList_ ll_;
 
-  Node *end_node = malloc(sizeof(Node));
+  Node_ *end_node = malloc(sizeof(Node_));
   end_node = NULL;
-  
 
   ll_.head = ll_.tail = end_node;
 
@@ -18,9 +17,9 @@ LinkedListSingle initSinglyLinkedList()
 }
 
 
-Node *createNodeLL_(int data, Node *next)
+Node_ *createNode_(int data, Node_ *next)
 {
-  Node *n = malloc(sizeof(Node));
+  Node_ *n = malloc(sizeof(Node_));
 
   n->data = data;
   n->next = next;
@@ -29,10 +28,10 @@ Node *createNodeLL_(int data, Node *next)
 }
 
 
-void ll_append(LinkedListSingle *ll_, int value)
+void ll_append(LinkedList_ *ll_, int value)
 {
   // Create node to hold data
-  Node *n = malloc(sizeof(Node));
+  Node_ *n = malloc(sizeof(Node_));
   n->data = value;
   n->next = NULL;       // next node is NULL, since we are appending
 
@@ -48,9 +47,9 @@ void ll_append(LinkedListSingle *ll_, int value)
 }
 
 
-int ll_contains(LinkedListSingle ll_, int value)
+int ll_contains(LinkedList_ ll_, int value)
 {
-  Node *curr = ll_.head;
+  Node_ *curr = ll_.head;
   while (curr != NULL)
   {
     if (curr->data == value) return 1;
@@ -61,7 +60,7 @@ int ll_contains(LinkedListSingle ll_, int value)
 }
 
 
-int ll_get_at_index(LinkedListSingle ll_, int index)
+int ll_get_at_index(LinkedList_ ll_, int index)
 {
   // Check if index within range
   if (!ll_index_in_range(ll_, index))
@@ -74,7 +73,7 @@ int ll_get_at_index(LinkedListSingle ll_, int index)
   if(index < 0) index += ll_size(ll_);
 
   int counter = 0;
-  Node *curr = ll_.head;      // current node: starting from the head
+  Node_ *curr = ll_.head;      // current node: starting from the head
   while (curr != NULL)
   {
     if(counter == index) return curr->data;
@@ -85,13 +84,13 @@ int ll_get_at_index(LinkedListSingle ll_, int index)
 }
 
 
-int ll_index_in_range(LinkedListSingle ll_, int index)
+int ll_index_in_range(LinkedList_ ll_, int index)
 {
   return index >= 0 - ll_size(ll_) && index < ll_size(ll_);
 }
 
 
-void ll_insert(LinkedListSingle *ll_, int value, int index)
+void ll_insert(LinkedList_ *ll_, int value, int index)
 {
   if (index == 0) return ll_prepend(ll_, value);
 
@@ -105,7 +104,7 @@ void ll_insert(LinkedListSingle *ll_, int value, int index)
 
   // Trasverse to the node at one index less than where we want to insert
   int counter = 0;
-  Node *curr = ll_->head;
+  Node_ *curr = ll_->head;
   while(counter < index - 1)
   {
     curr = curr->next;
@@ -113,19 +112,19 @@ void ll_insert(LinkedListSingle *ll_, int value, int index)
   }
 
   // Create the node to insert
-  Node *n = createNodeLL_(value, curr->next);
+  Node_ *n = createNodeLL_(value, curr->next);
 
   curr->next = n;
 }
 
 
-int ll_is_empty(LinkedListSingle ll_)
+int ll_is_empty(LinkedList_ ll_)
 {
   return ll_.head == NULL || ll_.tail == NULL;
 }
 
 
-void ll_list(LinkedListSingle ll_)
+void ll_list(LinkedList_ ll_)
 {
   if(ll_is_empty(ll_))
   {
@@ -139,7 +138,7 @@ void ll_list(LinkedListSingle ll_)
   {
     int index = 0;
     int size = ll_size(ll_);
-    Node *curr = ll_.head;
+    Node_ *curr = ll_.head;
     while (curr != NULL)
     {
       if (index == 0)
@@ -163,10 +162,10 @@ void ll_list(LinkedListSingle ll_)
 }
 
 
-void ll_prepend(LinkedListSingle *ll_, int value)
+void ll_prepend(LinkedList_ *ll_, int value)
 {
   // Create node to store data
-  Node *n = malloc(sizeof(Node));
+  Node_ *n = malloc(sizeof(Node_));
   n->data = value;
   n->next = NULL;
 
@@ -180,7 +179,7 @@ void ll_prepend(LinkedListSingle *ll_, int value)
 }
 
 
-void ll_remove(LinkedListSingle *ll_, int value)
+void ll_remove(LinkedList_ *ll_, int value)
 {
   if(!ll_contains(*ll_, value))
   {
@@ -192,7 +191,7 @@ void ll_remove(LinkedListSingle *ll_, int value)
 }
 
 
-void ll_remove_at_index(LinkedListSingle *ll_, int index)
+void ll_remove_at_index(LinkedList_ *ll_, int index)
 {
   // Check if index is within range
   if (!ll_index_in_range(*ll_, index))
@@ -203,7 +202,7 @@ void ll_remove_at_index(LinkedListSingle *ll_, int index)
 
   // Trasverse to the node at one index less than where we want to remove
   int counter = 0;
-  Node *curr = ll_->head;
+  Node_ *curr = ll_->head;
   while (counter < index - 1)
   {
     curr = curr->next;
@@ -211,7 +210,7 @@ void ll_remove_at_index(LinkedListSingle *ll_, int index)
   }
 
   // Get the node to delete
-  Node *node_to_remove = curr->next;
+  Node_ *node_to_remove = curr->next;
 
   curr->next = node_to_remove->next;
 
@@ -219,11 +218,11 @@ void ll_remove_at_index(LinkedListSingle *ll_, int index)
 }
 
 
-int ll_search(LinkedListSingle ll_, int value)
+int ll_search(LinkedList_ ll_, int value)
 {
   // Trasverse through the nodes one after the other
   int counter = 0;
-  Node *curr = ll_.head;
+  Node_ *curr = ll_.head;
   while (curr != NULL)
   {
     if (curr->data == value) return counter;
@@ -237,13 +236,13 @@ int ll_search(LinkedListSingle ll_, int value)
 }
 
 
-int ll_size(LinkedListSingle ll_)
+int ll_size(LinkedList_ ll_)
 {
   if (ll_is_empty(ll_)) return 0;
 
   int size = 0;
 
-  Node *curr = ll_.head;
+  Node_ *curr = ll_.head;
   while (curr != NULL)
   {
     size++;
@@ -254,9 +253,9 @@ int ll_size(LinkedListSingle ll_)
 }
 
 
-void ll_strrep(LinkedListSingle ll_)
+void ll_strrep(LinkedList_ ll_)
 {
-  printf("<LinkedListSingle>[%i] ", ll_size(ll_));
+  printf("<LinkedList_>[%i] ", ll_size(ll_));
   ll_list(ll_);
 }
 

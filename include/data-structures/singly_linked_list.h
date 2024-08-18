@@ -1,5 +1,5 @@
-#ifndef SINGLY_LINKED_LIST_H
-#define SINGLY_LINKED_LIST_H
+#ifndef _LINKED_LIST_H
+#define _LINKED_LIST_H
 
 /**
  * -------------------------------
@@ -16,27 +16,27 @@
  * 
  */
 
-typedef struct Node
+typedef struct Node_
 {
   int data;               // The data
-  struct Node *next;      // The next node
+  struct Node_ *next;      // The next node
 }
-Node;
+Node_;
 
 
-typedef struct LinkedListSingle
+typedef struct LinkedList_
 {
-  struct Node *head;      // The head node
-  struct Node *tail;      // The tail node
+  struct Node_ *head;      // The head node
+  struct Node_ *tail;      // The tail node
 }
-LinkedListSingle;
+LinkedList_;
 
 
 /**
  * Initialise a singly linked list data structure
  * Similar to calling the constructor of a class in OOP context
  */
-LinkedListSingle initSinglyLinkedList();
+LinkedList_ initLinkedList_();
 
 
 /**
@@ -45,7 +45,7 @@ LinkedListSingle initSinglyLinkedList();
  * @param next The next node
  * @return     Returns the node created
  */
-Node *createNodeLL_(int data, Node *next);
+Node_ *createNode_(int data, Node_ *next);
 
 
 /**
@@ -54,13 +54,13 @@ Node *createNodeLL_(int data, Node *next);
  * @param ll_   The linked list
  * @param value The value to append 
  */
-void ll_append(LinkedListSingle *ll_, int value);
+void ll_append(LinkedList_ *ll_, int value);
 
 
 /**
  * Checks whether the singly list contains a given item
  */
-int ll_contains(LinkedListSingle ll_, int value);
+int ll_contains(LinkedList_ ll_, int value);
 
 
 /**
@@ -72,7 +72,7 @@ int ll_contains(LinkedListSingle ll_, int value);
  * @return      The value at the given index
  * @throw Fails if the given index is not within range
  */
-int ll_get_at_index(LinkedListSingle ll_, int index);
+int ll_get_at_index(LinkedList_ ll_, int index);
 
 
 /**
@@ -80,44 +80,44 @@ int ll_get_at_index(LinkedListSingle ll_, int index);
  * Allowed index range is: -n <= i < n
  * @return Returns TRUE (1) if index is within range; otherwise FALSE (0)
  */
-int ll_index_in_range(LinkedListSingle ll_, int index);
+int ll_index_in_range(LinkedList_ ll_, int index);
 
 
 /**
  * Insert an item at the given index in the singly linked list
  * 
  */
-void ll_insert(LinkedListSingle *ll_, int value, int index);
+void ll_insert(LinkedList_ *ll_, int value, int index);
 
 /**
  * Check if the singly linked list is empty
  */
-int ll_is_empty(LinkedListSingle ll_);
+int ll_is_empty(LinkedList_ ll_);
 
 
 /**
  * List the elements of the singly linked list
  */
-void ll_list(LinkedListSingle ll_);
+void ll_list(LinkedList_ ll_);
 
 
 /**
  * Prepend an item to the singly linked list.
  * Takes constant or O(1) time
  */
-void ll_prepend(LinkedListSingle *ll_, int value);
+void ll_prepend(LinkedList_ *ll_, int value);
 
 
 /**
  * Remove the first occurrence of a value from the linked list
  */
-void ll_remove(LinkedListSingle *ll_, int value);
+void ll_remove(LinkedList_ *ll_, int value);
 
 
 /**
  * Remove the item at a given index
  */
-void ll_remove_at_index(LinkedListSingle *ll_, int index);
+void ll_remove_at_index(LinkedList_ *ll_, int index);
 
 
 /**
@@ -127,19 +127,19 @@ void ll_remove_at_index(LinkedListSingle *ll_, int index);
  * @return      Returns the index of first occurrence of the value if found.
  * @throw       Fails if the value is not found
  */
-int ll_search(LinkedListSingle ll_, int value);
+int ll_search(LinkedList_ ll_, int value);
 
 
 /**
  * The size of the singly linked list.
  * Takes linear or O(n) time
  */
-int ll_size(LinkedListSingle ll_);
+int ll_size(LinkedList_ ll_);
 
 /**
  * The string representation of the singly linked list
  */
-void ll_strrep(LinkedListSingle ll_);
+void ll_strrep(LinkedList_ ll_);
 
 
 #endif

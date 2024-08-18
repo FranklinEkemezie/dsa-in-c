@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 
-  LinkedListSingle ll_ = initSinglyLinkedList();
+  LinkedList_ ll_ = initLinkedList_();
 
   ll_append(&ll_, 5);
   // ll_prepend(&ll_, 0);
