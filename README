@@ -15,6 +15,7 @@ This repository contains my implementations of various data structures and algor
 
 
 ## 🛠️ Implemented Data Structures
+- **Dynamic Array**: Static arrays with improved features to add and remove items dynamically.
 - **Linked List**: Singly and doubly linked lists with basic operations.
 - **Stacks and Queues**: Implementations using arrays and linked lists.
 - **Trees**: Binary trees, AVL trees, and basic operations like insert, delete, and traversal.
@@ -45,6 +46,10 @@ This repository contains my implementations of various data structures and algor
 - Mastering fundamental data structures in C.
 - Practicing algorithmic problem-solving.
 - Enhancing my understanding of memory management and pointers in C.
+
+## Learning Resources
+- **CS50 Youtube channel**: https://www.youtube.com/c/cs50
+- **CS50 Github**: https://github.com/cs50
 
 ## 📬 Get in Touch
 I'm always open to feedback, suggestions, and collaboration!

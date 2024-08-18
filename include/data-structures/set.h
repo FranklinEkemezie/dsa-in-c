@@ -17,6 +17,7 @@
  * 
  * NB: THe Set data structure depends heavily on the Dynamic Array data structure
  */
+
 typedef struct Set
 {
   DynamicArray d_arr;     // the dynamic address
