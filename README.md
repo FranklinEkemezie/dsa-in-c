@@ -16,8 +16,7 @@ This repository contains my implementations of various data structures and algor
 
 ## 🛠️ Implemented Data Structures
 - **Dynamic Array**: Static arrays with improved features to add and remove items dynamically.
-- **Linked List**: Singly and doubly linked lists with basic operations.
-- **Stacks and Queues**: Implementations using arrays and linked lists.
+- **Linked List**: Singly and doubly linked lists with basic operations. - **Stacks and Queues**: Implementations using arrays and linked lists.
 - **Trees**: Binary trees, AVL trees, and basic operations like insert, delete, and traversal.
 - **Graphs**: Representation of graphs using adjacency lists and matrices.
 

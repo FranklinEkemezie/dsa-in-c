@@ -18,7 +18,7 @@
 
 typedef struct Node_
 {
-  int data;               // The data
+  int data;                // The data
   struct Node_ *next;      // The next node
 }
 Node_;
@@ -70,7 +70,7 @@ int ll_contains(LinkedList_ ll_, int value);
  * @param ll_   The singly linked list
  * @param index The index of the value to find
  * @return      The value at the given index
- * @throw Fails if the given index is not within range
+ * @throw       Fails if the given index is not within range
  */
 int ll_get_at_index(LinkedList_ ll_, int index);
 
