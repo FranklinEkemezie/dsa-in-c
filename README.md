@@ -29,7 +29,7 @@ This repository contains my implementations of various data structures and algor
 ## 🚀 How to Run
 1. Clone the repository: 
    ```bash
-   git clone https://github.com/EkemezieFranklin/dsa-in-c.git
+   git clone https://github.com/FranklinEkemezie/dsa-in-c.git
    ```
 2. Navigate to the project directory:
    ```bash
