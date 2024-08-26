@@ -1,6 +1,8 @@
 #ifndef _LINKED_LIST_H
 #define _LINKED_LIST_H
 
+#include "doubly_linked_list.h"
+
 /**
  * -------------------------------
  * SINGLY LINKED LIST data structure:
@@ -18,16 +20,16 @@
 
 typedef struct Node_
 {
-  int data;                // The data
-  struct Node_ *next;      // The next node
+  int data;                // data
+  struct Node_ *next;      // pointer to the next node
 }
 Node_;
 
 
 typedef struct LinkedList_
 {
-  struct Node_ *head;      // The head node
-  struct Node_ *tail;      // The tail node
+  Node_ *head;      // The head node
+  Node_ *tail;      // The tail node
 }
 LinkedList_;
 

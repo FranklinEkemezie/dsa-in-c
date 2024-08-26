@@ -8,10 +8,7 @@ LinkedList_ initLinkedList_()
 {
   LinkedList_ ll_;
 
-  Node_ *end_node = malloc(sizeof(Node_));
-  end_node = NULL;
-
-  ll_.head = ll_.tail = end_node;
+  ll_.head = ll_.tail = NULL;
 
   return ll_;
 }
@@ -83,7 +80,8 @@ int ll_get_at_index(LinkedList_ ll_, int index)
 
 int ll_index_in_range(LinkedList_ ll_, int index)
 {
-  return index >= 0 - ll_size(ll_) && index < ll_size(ll_);
+  int ll_len = ll_size(ll_);
+  return index >= 0 - ll_len && index < ll_len;
 }
 
 
@@ -95,7 +93,7 @@ void ll_insert(LinkedList_ *ll_, int value, int index)
   if (index == ll_len) return ll_append(ll_, value);
   if(index < 0 || index > ll_len)
   {
-    fprintf(stderr, "Index out o range: Cannot insert at index %i", index);
+    fprintf(stderr, "Index out of range: Cannot insert at index %i", index);
     exit(EXIT_FAILURE);
   }
 
@@ -163,9 +161,7 @@ void ll_list(LinkedList_ ll_)
 void ll_prepend(LinkedList_ *ll_, int value)
 {
   // Create node to store data
-  Node_ *n = malloc(sizeof(Node_));
-  n->data = value;
-  n->next = NULL;
+  Node_ *n = createNode_(value, NULL);
 
   if (ll_is_empty(*ll_))
   {
@@ -256,5 +252,3 @@ void ll_strrep(LinkedList_ ll_)
   printf("<LinkedList_>[%i] ", ll_size(ll_));
   ll_list(ll_);
 }
-
-
