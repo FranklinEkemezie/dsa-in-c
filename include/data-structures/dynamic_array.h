@@ -35,6 +35,12 @@ DynamicArray initDynamicArray();
 
 
 /**
+ * Free the dynamic array in memory
+ */
+void freeDynamicArray(DynamicArray *d_Arr);
+
+
+/**
  * Adjust the dynamic array to fit more elements
  */
 void d_Arr_adjust(DynamicArray *d_Arr);
@@ -77,6 +83,15 @@ int d_Arr_get_at_index(DynamicArray d_Arr, int index);
 
 
 /**
+ * Get the length of the dynamic array
+ * Takes O(1) or constant time.
+ * 
+ * @return The length of the dynamic array
+ */
+int d_Arr_get_length(DynamicArray d_Arr);
+
+
+/**
  * Checks whether the index is within the range of the dynamic array
  * @param d_Arr The dynamic array
  * @param index The index
@@ -101,12 +116,10 @@ void d_Arr_insert(DynamicArray *d_Arr, int value, int index);
 
 
 /**
- * Get the length of the dynamic array
- * Takes O(1) or constant time.
- * 
- * @return The length of the dynamic array
+ * Checks whether the dynamic array is empty
+ * @return Returns `1` if the dynamic array is empty; otherwise `0`.
  */
-int d_Arr_get_length(DynamicArray d_Arr);
+int d_Arr_is_empty(DynamicArray d_Arr);
 
 
 /**

@@ -5,11 +5,23 @@
 
 _LinkedList_ init_LinkedList_()
 {
-  _LinkedList_ _ll_;
+  _LinkedList_ *_ll_ = malloc(sizeof(_LinkedList_));
 
-  _ll_.head = _ll_.tail = NULL;
+  _ll_->head = _ll_->tail = NULL;
 
-  return _ll_;
+  return *_ll_;
+}
+
+
+void free_LinkedList_(_LinkedList_ *_ll_)
+{
+  while (_ll_is_empty(*_ll_))
+  {
+    _ll_remove_at_index(_ll_, 0);
+  }
+
+  // Free the linked list memory
+  free(_ll_);
 }
 
 
@@ -78,6 +90,8 @@ int _ll_get_at_index(_LinkedList_ _ll_, int index)
     curr = curr->next;
     counter++;
   }
+
+  return -1;
 }
 
 

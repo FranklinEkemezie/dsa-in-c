@@ -6,11 +6,23 @@
 
 LinkedList_ initLinkedList_()
 {
-  LinkedList_ ll_;
+  LinkedList_ *ll_ = malloc(sizeof(LinkedList_));
 
-  ll_.head = ll_.tail = NULL;
+  ll_->head = ll_->tail = NULL;
 
-  return ll_;
+  return *ll_;
+}
+
+
+void freeLinkedList_(LinkedList_ *ll_)
+{
+  while (!ll_is_empty(*ll_))
+  {
+    ll_remove_at_index(ll_, 0);
+  }
+
+  // Free the linked list
+  free(ll_);
 }
 
 
@@ -59,7 +71,7 @@ int ll_get_at_index(LinkedList_ ll_, int index)
   // Check if index within range
   if (!ll_index_in_range(ll_, index))
   {
-    fprintf(stderr, "Index out of range: Could not get item at index %i", index);
+    fprintf(stderr, "Index out of range: Could not get item at index %i\n", index);
     exit(EXIT_FAILURE);
   }
 
@@ -75,6 +87,8 @@ int ll_get_at_index(LinkedList_ ll_, int index)
     curr = curr->next;
     counter++;
   }
+
+  return -1;
 }
 
 
@@ -93,7 +107,7 @@ void ll_insert(LinkedList_ *ll_, int value, int index)
   if (index == ll_len) return ll_append(ll_, value);
   if(index < 0 || index > ll_len)
   {
-    fprintf(stderr, "Index out of range: Cannot insert at index %i", index);
+    fprintf(stderr, "Index out of range: Cannot insert at index %i\n", index);
     exit(EXIT_FAILURE);
   }
 
@@ -115,7 +129,7 @@ void ll_insert(LinkedList_ *ll_, int value, int index)
 
 int ll_is_empty(LinkedList_ ll_)
 {
-  return ll_.head == NULL && ll_.tail == NULL;
+  return ll_.head == NULL && ll_.tail == NULL ? 1 : 0;
 }
 
 
@@ -165,11 +179,15 @@ void ll_prepend(LinkedList_ *ll_, int value)
 
   if (ll_is_empty(*ll_))
   {
-    ll_->head = ll_->tail = n;
+    ll_->head = n;
+    ll_->tail = n;
+    return;
   }
 
   n->next = ll_->head;
+
   ll_->head = n;
+  ll_->tail->next = NULL;
 }
 
 
@@ -190,7 +208,7 @@ void ll_remove_at_index(LinkedList_ *ll_, int index)
   // Check if index is within range
   if (!ll_index_in_range(*ll_, index))
   {
-    fprintf(stderr, "Index out of range: Could not remove item at index %i", index);
+    fprintf(stderr, "Index out of range: Could not remove item at index %i\n", index);
     exit(EXIT_FAILURE);
   }
 
@@ -241,6 +259,7 @@ int ll_size(LinkedList_ ll_)
   {
     size++;
     curr = curr->next;
+
   }
 
   return size;

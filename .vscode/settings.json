@@ -1,6 +1,6 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "stdio.h": "c"
+        "stack.h": "c"
     }
 }

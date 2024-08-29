@@ -1,8 +1,6 @@
 #ifndef __LINKED_LIST_H
 #define __LINKED_LIST_H
 
-#include "singly_linked_list.h"
-
 /**
  * -------------------------------
  * DOUBLY LINKED LIST data structure:
@@ -40,6 +38,12 @@ _LinkedList_;
  * Similar to calling the constructor of a class in OOP context
  */
 _LinkedList_ init_LinkedList_();
+
+
+/**
+ * Free the doubly linked list
+ */
+void free_LinkedList_(_LinkedList_ *_ll_);
 
 
 /**

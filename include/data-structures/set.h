@@ -15,12 +15,13 @@
  * -> search
  * -> delete
  * 
- * NB: THe Set data structure depends heavily on the Dynamic Array data structure
+ * NB: THe Set data structure implemented here depends heavily on the Dynamic Array data structure.
+ * It could be implemented using a linked list instead
  */
 
 typedef struct Set
 {
-  DynamicArray d_arr;     // the dynamic address
+  DynamicArray *d_arr;     // the dynamic address
 }
 Set;
 
@@ -32,6 +33,12 @@ Set;
  * @return The set
  */
 Set initSet();
+
+
+/**
+ * Free the Set in memory
+ */
+void freeSet(Set *set);
 
 
 /**
@@ -66,6 +73,14 @@ void set_insert(Set *set, int value);
  * Insert an array of values
  */
 void set_insert_values(Set *set, int values[], int length);
+
+
+/**
+ * Checks whether a set is empty or not
+ * 
+ * @return Returns `1` if the set is empty; otherwise `0`.
+ */
+int set_is_empty(Set set);
 
 
 /**

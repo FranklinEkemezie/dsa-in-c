@@ -28,7 +28,7 @@
  */
 typedef struct Stack
 {
-    // Stores the memory address of the linked list storing
+    // Memory address of the linked list storing
     // the data of the stack
     LinkedList_ *data;
 
@@ -39,10 +39,17 @@ Stack;
 
 
 /**
- * Initialise a Set data structure.
+ * Initialise a Stack data structure.
  * Similar to calling the constructor of a class in OOP
  */
 Stack initStack(int size);
+
+
+/**
+ * Free a Stack memory after use
+ * 
+ */
+void freeStack(Stack *s);
 
 
 /**

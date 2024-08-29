@@ -25,9 +25,24 @@ DynamicArray initDynamicArray()
 }
 
 
+void freeDynamicArray(DynamicArray *d_Arr)
+{
+  while (!d_Arr_is_empty(*d_Arr))
+  {
+    d_Arr_remove_at_index(d_Arr, 0);
+  }
+
+  // Free the 'data' variable
+  free(d_Arr->data);
+
+  // Free the dynamic array itself
+  free(d_Arr);
+}
+
+
 void d_Arr_adjust(DynamicArray *d_Arr)
 {
-  int *updated_data         = realloc(d_Arr->data, d_Arr->capacity * 2 * sizeof(int));
+  int *updated_data = realloc(d_Arr->data, d_Arr->capacity * 2 * sizeof(int));
   if (updated_data == NULL)
   {
     fprintf(stderr, "Could not adjust dynamic array: Memory failed to be reallocated\n");
@@ -125,6 +140,12 @@ void d_Arr_insert(DynamicArray *d_Arr, int value, int index)
 }
 
 
+int d_Arr_is_empty(DynamicArray d_Arr)
+{
+  return d_Arr.length == 0 ? 1 : 0;
+}
+
+
 void d_Arr_list(DynamicArray d_Arr)
 {
   printf("[");
@@ -203,11 +224,9 @@ void d_Arr_remove_at_index(DynamicArray *d_Arr, int index)
   // For -ve index
   if (index < 0) index += d_Arr->length;
 
-  int current_val;
-
-  for (int i = index, len = d_Arr_get_length(*d_Arr); i < len;)
+  for (int i = index, len = d_Arr_get_length(*d_Arr); i < len; i++)
   {
-    d_Arr->data[i] = d_Arr->data[++i];
+    d_Arr->data[i] = d_Arr->data[i + 1];
   }
 
   // Decrease the legth

@@ -5,12 +5,16 @@
 #include "include/data-structures/singly_linked_list.h"
 
 
-int main(int argc, char *argv[])
+int main()
 {
-  LinkedList_ ll_ = initLinkedList_();
+  Stack s = initStack(4);
 
-  ll_append(&ll_, 3);
-  ll_append(&ll_, -7);
+  stack_pop(&s);
+  // stack_push(&s, 5);
+  // stack_push(&s, -3);
+  // stack_push(&s, 7);
+  // stack_push(&s, 0);
 
-  ll_strrep(ll_);
+
+  stack_list(s);
 }
