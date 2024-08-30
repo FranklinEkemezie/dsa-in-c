@@ -38,7 +38,7 @@ DynamicStack;
  * Initialise a Dynamic Stzck data structure.
  * Similar to calling the constructor of a class in OOP
  */
-DynamicStack initDynamicStack();
+DynamicStack createDynamicStack();
 
 
 /**

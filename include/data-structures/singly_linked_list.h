@@ -36,7 +36,7 @@ LinkedList_;
  * Initialise a singly linked list data structure
  * Similar to calling the constructor of a class in OOP context
  */
-LinkedList_ initLinkedList_();
+LinkedList_ createLinkedList_();
 
 
 /**

@@ -37,7 +37,7 @@ _LinkedList_;
  * Initialise a doubly linked list data structure
  * Similar to calling the constructor of a class in OOP context
  */
-_LinkedList_ init_LinkedList_();
+_LinkedList_ create_LinkedList_();
 
 
 /**

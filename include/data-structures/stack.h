@@ -42,7 +42,7 @@ Stack;
  * Initialise a Stack data structure.
  * Similar to calling the constructor of a class in OOP
  */
-Stack initStack(int size);
+Stack createStack(int size);
 
 
 /**

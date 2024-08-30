@@ -5,12 +5,12 @@
 #include "../../include/data-structures/stack.h"
 
 
-Stack initStack(int size)
+Stack createStack(int size)
 {
     Stack *stack = malloc(sizeof(Stack));
 
     LinkedList_ *data = malloc(sizeof(LinkedList_));
-    *data = initLinkedList_();
+    *data = createLinkedList_();
 
     stack->data = data;
     stack->size = size;

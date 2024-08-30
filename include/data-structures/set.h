@@ -32,7 +32,7 @@ Set;
  * 
  * @return The set
  */
-Set initSet();
+Set createSet();
 
 
 /**

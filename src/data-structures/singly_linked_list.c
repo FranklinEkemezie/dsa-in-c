@@ -4,7 +4,7 @@
 #include "../../include/data-structures/singly_linked_list.h"
 
 
-LinkedList_ initLinkedList_()
+LinkedList_ createLinkedList_()
 {
   LinkedList_ *ll_ = malloc(sizeof(LinkedList_));
 

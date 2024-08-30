@@ -10,7 +10,7 @@
 const int INITIAL_D_ARR_CAPACITY = 4;
 
 
-DynamicArray initDynamicArray()
+DynamicArray createDynamicArray()
 {
   DynamicArray *d_Arr = malloc(sizeof(DynamicArray));
 

@@ -5,13 +5,13 @@
 #include "../../include/data-structures/set.h"
 
 
-Set initSet()
+Set createSet()
 {
   Set *set = malloc(sizeof(Set));
 
   // The dynamic array somewhere else in memory
   DynamicArray *d_Arr = malloc(sizeof(DynamicArray));
-  *d_Arr = initDynamicArray();
+  *d_Arr = createDynamicArray();
 
   set->d_arr = d_Arr;
 

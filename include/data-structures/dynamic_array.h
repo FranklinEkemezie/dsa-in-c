@@ -30,7 +30,7 @@ DynamicArray;
  * 
  * @return The dynamic array
  */
-DynamicArray initDynamicArray();
+DynamicArray createDynamicArray();
 
 
 /**

@@ -55,6 +55,26 @@ typedef struct Tree
 Tree;
 
 
+/**
+ * Initialise a Tree data structure
+ * Similar to calling the constructor of a class in OOP
+ */
+Tree createTree();
+
+
+/**
+ * Free a Tree in memory
+ */
+void freeTree(Tree *t);
+
+
+/**
+ * Create a node for a tree data structure
+ */
+T_Node *createT_Node(int data, T_Node *left, T_Node *right);
+
+
+
 
 
 #endif

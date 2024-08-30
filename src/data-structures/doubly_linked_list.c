@@ -3,7 +3,7 @@
 
 #include "../../include/data-structures/doubly_linked_list.h"
 
-_LinkedList_ init_LinkedList_()
+_LinkedList_ create_LinkedList_()
 {
   _LinkedList_ *_ll_ = malloc(sizeof(_LinkedList_));
 

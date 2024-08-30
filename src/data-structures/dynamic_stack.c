@@ -4,12 +4,12 @@
 #include "../../include/data-structures/dynamic_stack.h"
 
 
-DynamicStack initDynamicStack()
+DynamicStack createDynamicStack()
 {
     DynamicStack *d_Stack = malloc(sizeof(DynamicStack));
 
     DynamicArray *d_Arr = malloc(sizeof(DynamicArray));
-    *d_Arr = initDynamicArray();
+    *d_Arr = createDynamicArray();
 
     d_Stack->data = d_Arr;
 
