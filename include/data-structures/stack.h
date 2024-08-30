@@ -83,6 +83,12 @@ void stack_list(Stack s);
 
 
 /**
+ * Get the top element of the stack without removing
+ */
+int stack_peek(Stack s);
+
+
+/**
  * Add an element to the top of the stack
  */
 
@@ -90,9 +96,15 @@ void stack_push(Stack *s, int value);
 
 
 /**
- * Remove the element at the top of the stack
+ * Remove the element at the top of the stack and returns it
  */
-void stack_pop(Stack *s);
+int stack_pop(Stack *s);
+
+
+/**
+ * The string representation of a stack
+ */
+void stack_strrep(Stack s);
 
 
 

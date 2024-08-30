@@ -21,10 +21,14 @@ Stack initStack(int size)
 
 void freeStack(Stack *s)
 {
+    printf("Freeing s...\n");
+    
     while (!stack_is_empty(*s))
     {
         stack_pop(s);
     }
+
+    // printf("Now free ll and s\n");
 
     // Free the linked list 'data' variable
     free(s->data);
@@ -75,7 +79,16 @@ void stack_list(Stack s)
         curr = curr->next;
     }
 
-    printf("]");
+    printf("]\n");
+}
+
+
+int stack_peep(Stack s)
+{
+    if (!stack_is_empty(s)) return s.data->head->data;
+
+    fprintf(stderr, "Stack is empty");
+    exit(EXIT_FAILURE);
 }
 
 
@@ -91,7 +104,7 @@ void stack_push(Stack *s, int value)
 }
 
 
-void stack_pop(Stack *s)
+int stack_pop(Stack *s)
 {
     if (stack_is_empty(*s))
     {
@@ -99,5 +112,16 @@ void stack_pop(Stack *s)
         exit(EXIT_FAILURE);
     }
 
+    int item_to_pop = s->data->head->data;
+
     ll_remove_at_index(s->data, 0);
+
+    return item_to_pop;
+}
+
+
+void stack_strrep(Stack s)
+{
+    printf("<Stack(%i)>[%i] ", stack_get_size(s), stack_get_length(s));
+    stack_list(s);
 }

@@ -212,19 +212,52 @@ void ll_remove_at_index(LinkedList_ *ll_, int index)
     exit(EXIT_FAILURE);
   }
 
-  // Trasverse to the node at one index less than where we want to remove
-  int counter = 0;
-  Node_ *curr = ll_->head;
-  while (counter < index - 1)
+  int len_ = ll_size(*ll_);
+
+  // For the -ve index
+  if (index < 0) index += len_;
+
+  Node_ *node_to_remove;
+
+  // Check if there is only one node remaining:
+  // Node must be the 'head'/'tail' node
+  if (len_ == 1 && index == 0)
   {
-    curr = curr->next;
-    counter++;
+    node_to_remove = ll_->head;
+
+    // No more node: Reset
+    ll_->head = ll_->tail = NULL;
   }
+  // Check if the 'head' node is to be removed
+  else if (index == 0)
+  {
+    node_to_remove = ll_->head;
 
-  // Get the node to delete
-  Node_ *node_to_remove = curr->next;
+    ll_->head = ll_->head->next;
+  }
+  // Trasverse to the node at one index less than where we want to remove
+  else
+  {
+    int counter = 0;
+    Node_ *curr = ll_->head;
+    while (counter < index - 1)
+    {
+      curr = curr->next;
+      counter++;
+    }
+    node_to_remove = curr->next;
 
-  curr->next = node_to_remove->next;
+    if (index == len_ - 1)       // Node to be removed is the 'tail' node
+    {
+      ll_->tail = curr;
+      ll_->tail->next = NULL;
+    }
+    else                        // Node to be removed is neither 'tail' nor 'head'
+    {
+      // Update the node 'next' pointer
+      curr->next = node_to_remove->next;
+    }
+  }
 
   free(node_to_remove);
 }
@@ -259,7 +292,6 @@ int ll_size(LinkedList_ ll_)
   {
     size++;
     curr = curr->next;
-
   }
 
   return size;

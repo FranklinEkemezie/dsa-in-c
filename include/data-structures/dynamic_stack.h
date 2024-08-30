@@ -6,7 +6,7 @@
 /**
  * -------------------------------------
  * STACK data structure
- * DynamicStack is a linear data structure that follows the
+ * Stack is a linear data structure that follows the
  * LIFO (Last-In-First-Out) principle.
  * That is, only insertion and deletion operation is allowed
  * from one end of the stack, i.e. the top
@@ -29,19 +29,20 @@ typedef struct DynamicStack
 {
     // Memory address of the dynamic array
     DynamicArray *data;
+
 }
 DynamicStack;
 
 
 /**
- * Initialise a Dynamic DynamicStack data structure.
+ * Initialise a Dynamic Stzck data structure.
  * Similar to calling the constructor of a class in OOP
  */
 DynamicStack initDynamicStack();
 
 
 /**
- * Free a Dynamic DynamicStack in memory
+ * Free a Dynamic Stack in memory
  */
 void freeDynamicStack(DynamicStack *d_Stack);
 
@@ -49,45 +50,43 @@ void freeDynamicStack(DynamicStack *d_Stack);
 /**
  * Get the length of the dynamic stack
  */
-int d_Stack_get_length(DynamicStack s);
-
-/**
- * Get the size of the dynamic stack
- */
-int d_Stack_get_size(DynamicStack s);
+int d_Stack_get_length(DynamicStack d_Stack);
 
 
 /**
  * Check whether or not a dynamic stack is empty
  */
-int d_Stack_is_empty(DynamicStack s);
-
-
-/**
- * Check whether dynamic stack is full
- */
-int d_Stack_is_full(DynamicStack s);
-
+int d_Stack_is_empty(DynamicStack d_Stack);
 
 
 /**
  * List the elements of a dynamic stack
  */
-void d_Stack_list(DynamicStack s);
+void d_Stack_list(DynamicStack d_Stack);
+
+
+/**
+ * Get the element at the top of the dynamic stack without removing it
+ */
+int d_Stack_peep(DynamicStack d_Stack);
 
 
 /**
  * Add an element to the top of the dynamic stack
  */
-
-void d_Stack_push(DynamicStack *s, int value);
+void d_Stack_push(DynamicStack *d_Stack, int value);
 
 
 /**
- * Remove the element at the top of the dynamic stack
+ * Remove the element at the top of the dynamic stack and return it
  */
-void d_Stack_pop(DynamicStack *s);
+int d_Stack_pop(DynamicStack *d_Stack);
 
+
+/**
+ * The string representation of a dynamic stack
+ */
+void d_Stack_strrep(DynamicStack d_Stack);
 
 
 #endif

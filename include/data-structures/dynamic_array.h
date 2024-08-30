@@ -20,7 +20,6 @@ typedef struct DynamicArray
   int *data;      // memory address of the array containing the data
   int capacity;   // the current capacity of the array
   int length;     // the length of the dynamic array
-  int *tracker;   // tracks which element/item is initialised
 }
 DynamicArray;
 

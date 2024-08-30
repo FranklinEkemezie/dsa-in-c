@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "stack.h": "c"
+        "stack.h": "c",
+        "dynamic_stack.h": "c",
+        "dynamic_array.h": "c"
     }
 }

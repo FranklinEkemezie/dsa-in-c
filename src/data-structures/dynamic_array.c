@@ -15,7 +15,7 @@ DynamicArray initDynamicArray()
   DynamicArray *d_Arr = malloc(sizeof(DynamicArray));
 
   // An array of integer stored somewhere in memory
-  int *data     = malloc(INITIAL_D_ARR_CAPACITY * sizeof(int));
+  int *data       = malloc(INITIAL_D_ARR_CAPACITY * sizeof(int));
 
   d_Arr->data     = data;
   d_Arr->capacity = 4;
@@ -45,7 +45,7 @@ void d_Arr_adjust(DynamicArray *d_Arr)
   int *updated_data = realloc(d_Arr->data, d_Arr->capacity * 2 * sizeof(int));
   if (updated_data == NULL)
   {
-    fprintf(stderr, "Could not adjust dynamic array: Memory failed to be reallocated\n");
+    fprintf(stderr, "Could not adjust dynamic array: Failed to reallocate memory %p\n capacity: %i; length: %i", d_Arr->data, d_Arr->capacity, d_Arr->length);
     exit(EXIT_FAILURE);
   }
   
@@ -68,17 +68,14 @@ void d_Arr_append(DynamicArray *d_Arr, int value)
 
 void d_Arr_append_values(DynamicArray *d_Arr, int values[], int length)
 {
-  for (int i = 0; i < length; i++)
-  {
-    d_Arr_append(d_Arr, values[i]);
-  } 
+  for  (int i = 0; i < length; d_Arr_append(d_Arr, values[i]), i++);
 }
 
 
 int d_Arr_contains(DynamicArray d_Arr, int value)
 {
   for (int i = 0; i < d_Arr.length; i++)
-    if(d_Arr.data[i] == value) return 1;
+    if (d_Arr.data[i] == value) return 1;
 
   return 0;
 }
@@ -86,7 +83,7 @@ int d_Arr_contains(DynamicArray d_Arr, int value)
 
 int d_Arr_get_at_index(DynamicArray d_Arr, int index)
 {
-  if(d_Arr_index_in_range(d_Arr, index))
+  if(!d_Arr_index_in_range(d_Arr, index))
   {
     fprintf(stderr, "Indexing range is exceeded. The index %i cannot be retrieved\n", index);
     exit(EXIT_FAILURE);
@@ -161,11 +158,11 @@ void d_Arr_list(DynamicArray d_Arr)
 void d_Arr_prepend(DynamicArray *d_Arr, int value)
 {
   // Check if max. capacity is reached
-  if(d_Arr->length == d_Arr->capacity)
+  if (d_Arr->length >= d_Arr->capacity)
     d_Arr_adjust(d_Arr);
 
   // Shift the element by one index to the beginning of the array
-  int current_index = d_Arr->length; // start at the last element
+  int current_index = d_Arr->length - 1;  // start at the last element
   while (current_index >= 0)
   {
     d_Arr->data[current_index + 1] = d_Arr->data[current_index];
@@ -179,10 +176,7 @@ void d_Arr_prepend(DynamicArray *d_Arr, int value)
 
 void d_Arr_prepend_values(DynamicArray *d_Arr, int values[], int length)
 {
-  for (int i = 0; i < length; i++)
-  {
-    d_Arr_prepend(d_Arr, values[i]);
-  }
+  for (int i = 0; i < length; d_Arr_prepend(d_Arr, values[i]), i++);
 }
 
 
