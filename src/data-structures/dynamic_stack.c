@@ -40,7 +40,7 @@ int d_Stack_get_length(DynamicStack d_Stack)
 
 int d_Stack_is_empty(DynamicStack d_Stack)
 {
-    return d_Stack_get_length(d_Stack) == 0 ? 1 : 0;
+    return d_Stack_get_length(d_Stack) == 0;
 }
 
 

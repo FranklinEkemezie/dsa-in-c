@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "include/data-structures/tree.h"
+#include "include/data-structures/queue.h"
 
 
-int main()
+int main(void)
 {
-  Tree t = createTree();
+  Queue q = createQueue(5);
 
-  
+  printf("%i\n", 5 != 5);
+
+  // printf("The min value in the tree is: %i \n", tree_get_min_val(t));
 }

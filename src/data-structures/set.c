@@ -74,7 +74,7 @@ void set_insert_values(Set *set, int values[], int length)
 
 int set_is_empty(Set set)
 {
-  return set_get_size(set) == 0 ? 1 : 0;
+  return set_get_size(set) == 0;
 }
 
 

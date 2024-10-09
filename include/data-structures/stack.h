@@ -5,21 +5,25 @@
 
 /**
  * -------------------------------------
- * STACK data structure
+ * STACK Data Structure
+ * 
  * Stack is a linear data structure that follows the
  * LIFO (Last-In-First-Out) principle.
  * That is, only insertion and deletion operation is allowed
- * from one end of the stack, i.e. the top
- * Implementation of a stack can be of:
- * - Static size - using the usual array type with fixed size
- * - Dynamic size - implemented using either a dynamic array implemented before or a linked list
- * It can also be implemented using memory which is:
- * - Contiguous - using an array
+ * from one end of the stack, i.e. the top.
+ * 
+ * The size of a stack data structure can be:
+ * - Static  - using the usual data array type with fixed size
+ * - Dynamic - implemented using either a dynamic array 
+ * (we've implemented before) or even a linked list
+ * 
+ * The structure of the memory allocation of a queue can be:
+ * - Contiguous     - implemented using an array
  * - Non-contiguous - using a linked list.
  * 
  * In this example, we are implementing:
- * - static and non-contiguous stack - using a simply linked list
- * - dynamic and contiguous stack - using dynamic array
+ * - Static and non-contiguous stack    - using a simply linked list
+ * - Dynamic and contiguous stack       - using a dynamic array
  */
 
 

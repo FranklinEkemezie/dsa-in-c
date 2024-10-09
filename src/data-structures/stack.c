@@ -58,8 +58,7 @@ int stack_is_empty(Stack s)
 
 int stack_is_full(Stack s)
 {
-    // printf("2nd: %p, %p\n", s.data->head, s.data->tail);
-    return stack_get_length(s) == stack_get_size(s)  ? 1 : 0;
+    return stack_get_length(s) == stack_get_size(s);
 }
 
 

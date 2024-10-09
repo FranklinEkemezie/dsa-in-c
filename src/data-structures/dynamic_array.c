@@ -139,7 +139,7 @@ void d_Arr_insert(DynamicArray *d_Arr, int value, int index)
 
 int d_Arr_is_empty(DynamicArray d_Arr)
 {
-  return d_Arr.length == 0 ? 1 : 0;
+  return d_Arr.length == 0;
 }
 
 

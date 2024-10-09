@@ -129,7 +129,7 @@ void ll_insert(LinkedList_ *ll_, int value, int index)
 
 int ll_is_empty(LinkedList_ ll_)
 {
-  return ll_.head == NULL && ll_.tail == NULL ? 1 : 0;
+  return ll_.head == NULL && ll_.tail == NULL;
 }
 
 

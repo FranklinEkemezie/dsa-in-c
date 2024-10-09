@@ -21,13 +21,17 @@
  * left child has a lower value, and every node's right child has higher value.
  * This allows for faster search, delete and insert operation without the need to
  * shift values in memory.
+ * Operations performed on a tree data structure include: insertion, deletion, trasversal,
+ * searching, rotation, finding the min./max. value, finding the height or depth of 
+ * the tree, finding the ancestors or descendants of a tree node, checking for balance,
+ * merging tree and so on. We will however, take up some of the common ones for now.
  * We shall implement the various types of tree trasversal (i.e. going through the
  * items/nodes of a tree one at a time):
  * -> Breadth First Search (BFS) - (Sideways trasveral) Nodes on the same level are 
  * visited first before going to the next level in the tree.
  * -> Depth First Search (DFS) - (Downwards trasversal) Trasveral moves down the tree
  * all the way to the leaf nodes (last nodes with no child nodes), taking one branch
- * after the other which can be done in three ways: pre-order, in-order and post-order
+ * after the other which can be done in three ways: pre-order, in-order and post-order.
  * 
  */
 
@@ -35,13 +39,13 @@
 /**
  * Tree Node structure
  */
-typedef struct T_Node
+typedef struct Tr_Node
 {
     int data;               // data
-    struct T_Node *left;    // memory address of the left child node
-    struct T_Node *right;   // memory address of the right child node
+    struct Tr_Node *left;    // memory address of the left child node
+    struct Tr_Node *right;   // memory address of the right child node
 }
-T_Node;
+Tr_Node;
 
 
 
@@ -50,7 +54,7 @@ T_Node;
  */
 typedef struct Tree
 {
-    T_Node *root;           // root node
+    Tr_Node *root;           // root node
 }
 Tree;
 
@@ -71,10 +75,51 @@ void freeTree(Tree *t);
 /**
  * Create a node for a tree data structure
  */
-T_Node *createT_Node(int data, T_Node *left, T_Node *right);
+Tr_Node *createTr_Node(int data, Tr_Node *left, Tr_Node *right);
 
 
+/**
+ * Get the minimum value in a tree
+ */
+int tree_get_min_val(Tree t);
 
+
+/**
+ * Get the depth of the tree
+ */
+int tree_get_node_depth(Tr_Node tr_n, int value);
+
+
+/**
+ * Insert a value
+ */
+void tree_insert(Tree *t, int value);
+
+
+/**
+ * Check if the tree is empty
+ */
+int tree_is_empty(Tree t);
+
+
+/**
+ * Print the elements of a tree using
+ * Depth First Search (DFS) algorithm
+ */
+void tree_print_dfs(Tree t);
+
+
+/**
+ * Print the elements of a tree using 
+ * Breadth First Search (BFS) algorithm
+ */
+void tree_print_bfs(Tree t);
+
+
+/**
+ * Remove an element from the tree
+ */
+void tree_remove(Tree t, int value);
 
 
 #endif
